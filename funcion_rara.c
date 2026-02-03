@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 15:33:42 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/01/28 16:00:40 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/03 16:52:40 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,28 +38,28 @@ int	bigger_group(t_list *a, int *index)
 	return (c);
 }
 
-void	mv_calculator(t_list *a, t_list *b)
+void	mv_calculator(t_list **a, t_list **b)
 {
 	int		mv_a;
 	int		mv_b;
 	t_list	*temp;
 	t_list	*node_a;
 
-	temp = b;
-	put_the_index(&a);
-	put_the_index(&b);
-	while (a->next != NULL)
+	temp = *b;
+	node_a = *a;
+	put_the_index(a);
+	put_the_index(b);
+	while (node_a->next != NULL)
 	{
-		if (a->index == ft_lstsize(a))
+		if (node_a->index == ft_lstsize(*a))
 			mv_a = 2;
-		else if (a->index > (ft_lstsize(a) / 2))
-			mv_a = ((ft_lstsize(a) / 2) - ft_lstsize(a)) + 2;
+		else if (node_a->index > (ft_lstsize(*a) / 2))
+			mv_a = ((ft_lstsize(*a) / 2) - ft_lstsize(*a)) + 2;
 		else
-			mv_a = a->index;
-		node_a = a;
-		calculate_b(node_a, &b, &mv_b);
-		a->mv = mv_a + mv_b;
-		a = a->next;
+			mv_a = node_a->index;
+		calculate_b(node_a, b, &mv_b);
+		node_a->mv = mv_a + mv_b;
+		node_a = node_a->next;
 	}
 }
 
