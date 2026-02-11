@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:52:55 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/01/22 17:16:50 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/11 18:46:34 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,40 @@ int	ft_atoi(const char *nptr)
 	}
 	return (dest * n);
 }
-/*
-int	main(void)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char nptr[65] = "     +25235";
+	char			*dest;
+	unsigned int	i;
+	size_t			tot_len;
 
-	printf ("%d", ft_atoi(nptr));
-	return (0);
+	if (s == NULL)
+		return (NULL);
+	i = 0;
+	tot_len = ft_strlen(s);
+	if (tot_len < start)
+	{
+		dest = malloc(sizeof(char) * 1);
+		if (!dest)
+			return (NULL);
+		dest[0] = '\0';
+		return (dest);
+	}
+	if (len > (tot_len - start))
+		len = tot_len - start;
+	dest = malloc(sizeof(char) * (len + 1));
+	if (!dest)
+		return (0);
+	while (s[start] != '\0' && len-- != 0)
+		dest[i++] = s[start++];
+	dest[i] = '\0';
+	return (dest);
 }
-*/
+size_t	ft_strlen(const char	*str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}

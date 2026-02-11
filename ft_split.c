@@ -6,21 +6,11 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 14:17:04 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/01/28 16:06:58 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/11 18:50:54 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	ft_free_all(char **str, int i)
-{
-	while (i >= 0)
-	{
-		free(str[i]);
-		i--;
-	}
-	free(str);
-}
 
 static int	ft_count_words(const char *s, char c)
 {
@@ -71,7 +61,6 @@ static int	ft_gimmi_all(const char *s, char c, int i, size_t *len)
 	}
 	return (0);
 }
-
 char	**ft_split(char const *s, char c)
 {
 	int		n;

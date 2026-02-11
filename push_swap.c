@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:45 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/03 17:24:18 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:32:48 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,15 @@ t_list	*push_swap(char **argv, int argc)
 		write(2, "Error\n", 6);
 		return (NULL);
 	}
+	b = NULL;
 	group_on_b(&a, &b);
 	sort_b(&a, &b);
+	while (b != NULL)
+	{
+		pushing(&b, &a);
+		write(1, "pa\n", 3);
+	}
+	ft_lstclear(&b);
 	return (a);
 }
 void	group_on_b(t_list **a, t_list **b)
@@ -43,10 +50,11 @@ void	group_on_b(t_list **a, t_list **b)
 		while (node_a->index != index)
 		{
 			rotating(a);
-			write(1, "ra", 2);
+			write(1, "ra\n", 3);
+			node_a = *a;
 		}
 		pushing(a, b);
-		write (1, "pa", 2);
+		write (1, "pb\n", 3);
 		counter--;
 	}
 }
@@ -55,123 +63,52 @@ void	sort_b(t_list **a, t_list **b)
 	int	minimun;
 	t_list	*node_a;
 	t_list	*node_b;
+	int	the_move;
+	int	code_mv;
 
-	node_b = *b;
-	node_a = *a;
-	while ((*a)->next != NULL)
+	minimun = 0;
+	while (*a != NULL)
 	{
-		mv_calculator(*a, *b);
-		min_mv(a, minimun);
+		node_b = *b;
+		node_a = *a;
+		mv_calculator(a, b);
+		min_mv(a, &minimun);
 		while (minimun != node_a->mv)
 			node_a = node_a->next;
-		while (node_b->next != NULL)
-			if (node_a->content < node_b->content)
-				node_b = node_b->next;
-		check_and_mv_both(a, b, node_a, node_b);
-		prepare_b(node_b, b);
+		while (node_b != NULL && *(node_a->content) > *(node_b->content))
+			node_b = node_b->next;
+		the_move = node_a->index - node_b->index;
+		code_mv = check_and_mv_both(a, b, node_a, node_b);
+		prepare_b(node_b, b, &the_move, code_mv);
 		prepare_and_send_a(a, b, node_a, node_b);
-		/*else if (b-> index == NULL) AQUI QUIERO COMPROBAR SI ES EL ULTIMO DE B. APUNTA A NULL??*/
+		resort_b(b, the_move, code_mv);
 	}
 } 
-void	min_mv(t_list **a, int minimun)
+void	min_mv(t_list **a, int *minimun)
 {
 	t_list *node_a;
 	
 	node_a = *a;
-	minimun = node_a->mv;
+	*minimun = node_a->mv;
 		while (node_a->next != NULL)
 		{
-			if (minimun <= node_a->mv)
-				minimun = node_a->mv;
+			if (*minimun <= node_a->mv)
+				*minimun = node_a->mv;
 			node_a = node_a->next;
 		}
 }
-void	check_and_mv_both(t_list **a, t_list **b, t_list *node_a, t_list *node_b)
+void	resort_b(t_list **b, int the_move, int code_mv)
 {
-	int	aux;
-	
-	if (node_b->index <= ft_lstsize(node_b) / 2 && node_b->index != 1 && node_b->index != 2
-		&& node_a->index <= ft_lstsize(node_b) / 2 && node_a->index != 1 && node_a->index != 2)
+	while (the_move != 0)
 	{
-		aux = node_b->index - node_a->index;
-		if (aux < 0)
-			aux = aux * -1;
-		while (aux != 0)
-		{
-			rotating(a);
-			rotating(b);
-			write(1, "rr", 2);
-			aux--;				
-		}
-	}
-	else if (node_b->index > ft_lstsize(node_b) / 2 && node_b->index != 1	&& node_b->index != 2
-				&& node_a->index > ft_lstsize(node_b) / 2 && node_a->index != 1	&& node_a->index != 2)
-	{
-		aux = node_b->index - node_a->index;
-		if (aux < 0)
-			aux = aux * -1;
-		while (aux != 0)
-		{
-			rerotating(a);
-			rerotating(b);
-			write(1, "rrr", 2);
-			aux--;				
-		}
-	}
-}
-void	prepare_b(t_list *node_b, t_list **b)
-{
-	int	indx_b;
-	
-	if(node_b->index == 2)
-	{
-		swapeanding(b);
-		write(1, "sb", 2);
-	}
-	else if (node_b->index <= ft_lstsize(*b) / 2 && node_b->index != 1 && node_b->index != 2)
-	{
-		while (indx_b -1 != 0)
-		{
-			rotating(b);
-			indx_b--;
-			write (1, "rb", 2);
-		}
-	}
-	else if (node_b->index > ft_lstsize(*b) / 2 && node_b->index != ft_lstsize(*b))
-	{
-		while (indx_b -1 != 0)
+		if (code_mv == 1)
 		{
 			rerotating(b);
-			indx_b--;
-			write (1, "rrb", 3);
 		}
-	}
-}
-void	prepare_and_send_a(t_list **a, t_list **b, t_list *node_a, t_list *node_b)
-{
-	int	indx_a;
-	
-	if (node_a->index <= ft_lstsize(*a) / 2 && node_a->index != 1 && node_a->index != 2)
-	{
-		while (indx_a -1 != 0)
+		else if (code_mv == 2)
 		{
 			rotating(b);
-			indx_a--;
-			write (1, "rb", 2);
 		}
-	}
-	else if(node_a->index == 2)
-	{
-		swapeanding(a);
-		write(1, "sa", 2);
-	}
-	else if (a->index > ft_lstsize(*a) / 2 && a->index != ft_lstsize(*a))
-	{
-		while (indx_a -1 != 0)
-		{
-			rerotating(&a);
-			indx_a--;
-			write (1, "rra", 3);
-		}
+		the_move--;
 	}
 }

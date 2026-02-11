@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 15:33:42 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/03 16:52:40 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/11 12:47:18 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,44 +17,45 @@ int	bigger_group(t_list *a, int *index)
 	int	c;
 	int	temp;
 	int	counter;
+	int temp_index;
 
 	counter = 1;
+	temp_index = a->index;
 	temp = *(a->content);
 	c = 1;
-	while (a->next != NULL)
+	while (a != NULL)
 	{
 		if (*(a->content) > temp)
 			c++;
 		else
 		{
-			if (counter < c)
-				counter = c;
+			is_bigger(&counter, &c, index, &temp_index);
 			c = 1;
-			*index = a->index;
+			temp_index = a->index;
 		}
 		temp = *(a->content);
 		a = a->next;
 	}
-	return (c);
+	is_bigger(&counter, &c, index, &temp_index);
+	return (counter);
 }
 
 void	mv_calculator(t_list **a, t_list **b)
 {
 	int		mv_a;
 	int		mv_b;
-	t_list	*temp;
 	t_list	*node_a;
 
-	temp = *b;
-	node_a = *a;
+	mv_b = 0;
 	put_the_index(a);
 	put_the_index(b);
-	while (node_a->next != NULL)
+	node_a = *a;
+	while (node_a != NULL)
 	{
 		if (node_a->index == ft_lstsize(*a))
 			mv_a = 2;
 		else if (node_a->index > (ft_lstsize(*a) / 2))
-			mv_a = ((ft_lstsize(*a) / 2) - ft_lstsize(*a)) + 2;
+			mv_a = (ft_lstsize(*a) - ft_lstsize(*a) / 2) + 2;
 		else
 			mv_a = node_a->index;
 		calculate_b(node_a, b, &mv_b);
@@ -65,28 +66,40 @@ void	mv_calculator(t_list **a, t_list **b)
 
 void	calculate_b(t_list *node_a, t_list **b, int *mv_b)
 {
-	while ((*b)->next != NULL)
-	{
-		if (node_a->content < (*b)->content)
-			*b = (*b)->next;
-	}
-	if ((*b)->index == ft_lstsize(*b))
-		(*b)->mv = 1;
-	else if ((*b)->index - 1 <= ft_lstsize(*b) / 2)
-		(*b)->mv = ((*b)->index - 1) * 2;
+	t_list	*node_b;
+
+	node_b = *b;
+	while (node_b->next != NULL && node_a->content < node_b->content)
+			node_b = node_b->next;
+	if (node_b->index == ft_lstsize(*b))
+		*mv_b = 1;
+	else if (node_b->index - 1 <= ft_lstsize(*b) / 2)
+		*mv_b = (node_b->index - 1) * 2;
 	else
-		*mv_b = 2 * (ft_lstsize(*b) - (*b)->index + 1);
+		*mv_b = 2 * (ft_lstsize(*b) - node_b->index + 1);
 }
 
 void	put_the_index(t_list **x)
 {
+	t_list	*node;
 	int	n;
 
+	node = *x;
 	n = 1;
-	while ((*x)->next != NULL)
+	while (node->next != NULL)
 	{
-		(*x)->index = n;
+		node->index = n;
 		n++;
-		*x = (*x)->next;
+		node = node->next;
 	}
+	node->index = n;
+}
+void	is_bigger(int *counter, int *c, int *index, int *temp_index)
+{
+	if (*counter < *c)
+	{
+		*counter = *c;
+		*index = *temp_index; 
+	}
+	
 }

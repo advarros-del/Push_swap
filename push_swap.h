@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:15:34 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/03 16:28:08 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/11 18:47:37 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,21 @@ void	put_the_index(t_list **x);
 void	calculate_b(t_list *node_a, t_list **b, int *mv_b);
 void	sort_b(t_list **a, t_list **b);
 int		bigger_group(t_list *a, int *index);
-void	mv_calculator(t_list *a, t_list *b);
+void	mv_calculator(t_list **a, t_list **b);
 void	calculate_b(t_list *node_a, t_list **b, int *mv_b);
 void	put_the_index(t_list **x);
-void	check_and_mv_both(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
-void	min_mv(t_list **a, int minimun);
+int		check_and_mv_both(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
+void	min_mv(t_list **a, int *minimun);
 void	group_on_b(t_list **a, t_list **b);
+void	is_rotating(int *indx_b, t_list **b, int *the_move, *code_mv);
+void	is_rotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
+void	resort_b(t_list **b, int the_move, int code_mv);
+void	is_bigger(int *counter, int *c, int *index, int *temp_index);
+t_list	*push_swap(char **argv, int argc);
+void	prepare_b(t_list *node_b, t_list **b, int *the_move, int *code_mv);
+void	prepare_and_send_a(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
+void	is_rerotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char	*str);
+
 #endif
