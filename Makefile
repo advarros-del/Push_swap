@@ -22,13 +22,13 @@ FLAGS = -Wextra -Werror -Wall -g
 #All files .c that you need
 SRC = ft_atoi.c\
 	check_args.c\
-	ft_lstclear.c\
-	funcion_rara.c\
+	prepare_a.c\
 	is_dg_or_sp.c\
 	lst_function.c\
 	main.c\
 	push_swap.c\
 	rules.c\
+	specific_rules.c\
 	utils.c\
 	ft_split.c\
 	

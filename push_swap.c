@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:45 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 16:10:00 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 19:19:17 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	sort_b(t_list **a, t_list **b)
 		min_mv(a, &minimun);
 		while (minimun != node_a->mv)
 			node_a = node_a->next;
-		while (node_b != NULL && *(node_a->content) > *(node_b->content))
+		while (node_b != NULL && node_a->content > node_b->content)
 			node_b = node_b->next;
 		the_move = node_a->index - node_b->index;
 		code_mv = check_and_mv_both(a, b, node_a, node_b);
@@ -95,7 +95,7 @@ void	min_mv(t_list **a, int *minimun)
 	*minimun = node_a->mv;
 	while (node_a->next != NULL)
 	{
-		if (*minimun <= node_a->mv)
+		if (*minimun > node_a->mv)
 			*minimun = node_a->mv;
 		node_a = node_a->next;
 	}

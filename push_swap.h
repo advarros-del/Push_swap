@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:15:34 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 16:57:44 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 19:13:31 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_list
 {
-	int				*content;
+	int				content;
 	int				index;
 	int				mv;
 	struct s_list	*next;
@@ -38,7 +38,7 @@ size_t	ft_strlen(const char *str);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int content);
 void	ft_lstclear(t_list **lst);
 void	ft_lstdelone(t_list *lst);
 void	put_the_index(t_list **x);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   funcion_rara.c                                     :+:      :+:    :+:   */
+/*   prepare_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 15:33:42 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 13:31:06 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 19:18:23 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	bigger_group(t_list *a, int *index)
 
 	counter = 1;
 	temp_index = a->index;
-	temp = *(a->content);
+	temp = a->content;
 	c = 1;
 	while (a != NULL)
 	{
-		if (*(a->content) > temp)
+		if (a->content > temp)
 			c++;
 		else
 		{
@@ -33,7 +33,7 @@ int	bigger_group(t_list *a, int *index)
 			c = 1;
 			temp_index = a->index;
 		}
-		temp = *(a->content);
+		temp = a->content;
 		a = a->next;
 	}
 	is_bigger(&counter, &c, index, &temp_index);

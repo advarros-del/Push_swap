@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:22:19 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 16:59:00 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 17:22:57 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
  
 void	is_rotating_a(int *indx_a, t_list **a)
 {
-	while (--indx_a -1 != 0)
+	while (--(*indx_a) -1 != 0)
 	{
 		rotating(a);
 		write (1, "ra\n", 3);
@@ -23,12 +23,20 @@ void	is_rotating_a(int *indx_a, t_list **a)
 
 void	is_rotating_b(int *indx_b, t_list **b, int *the_move, int *code_mv)
 {
-	while (--indx_b -1 != 0)
+	while (--(*indx_b) -1 != 0)
 	{
 		rotating(b);
-		write (1, "ra\n", 3);
-		the_move ++;
+		write (1, "rb\n", 3);
+		(*the_move)++;
 		*code_mv = 1;
+	}
+}
+void	is_rerotating_a(int *indx_a, t_list **a)
+{
+	while (--(*indx_a) -1 != 0)
+	{
+		rerotating(a);
+		write (1, "rra\n", 4);
 	}
 }
 
@@ -43,7 +51,7 @@ void	is_rotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b)
 	{
 		rotating(a);
 		rotating(b);
-		write(1, "rr", 2);
+		write(1, "rr\n", 3);
 		aux--;
 	}
 }
@@ -59,7 +67,7 @@ void	is_rerotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b)
 	{
 		rerotating(a);
 		rerotating(b);
-		write(1, "rrr", 2);
+		write(1, "rrr\n", 4);
 		aux--;				
 	}
 }
