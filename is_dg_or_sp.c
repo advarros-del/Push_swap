@@ -6,11 +6,11 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 15:27:19 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/01/26 18:48:22 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 13:49:28 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "push_swap.h"
 
 int	is_dg_or_sp(int c, int *s)
 {

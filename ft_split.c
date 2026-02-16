@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 14:17:04 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/11 18:50:54 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 13:33:38 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static int	ft_gimmi_all(const char *s, char c, int i, size_t *len)
 	}
 	return (0);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	int		n;

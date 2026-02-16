@@ -6,7 +6,7 @@
 #    By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/17 15:46:01 by adrvarga          #+#    #+#              #
-#    Updated: 2026/02/11 19:15:57 by adrvarga         ###   ########.fr        #
+#    Updated: 2026/02/16 13:11:32 by adrvarga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,7 @@ NAME = push_swap
 CC = cc 
 
 #Flags that the compiler have to be use.
-FLAGS = -Wextra -Werror -Wall
-
- 
+FLAGS = -Wextra -Werror -Wall -g 
 
 #All files .c that you need
 SRC = ft_atoi.c\

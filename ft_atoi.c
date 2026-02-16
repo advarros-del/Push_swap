@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:52:55 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/11 18:46:34 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 13:34:59 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	ft_atoi(const char *nptr)
 	}
 	return (dest * n);
 }
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*dest;
@@ -71,6 +72,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	dest[i] = '\0';
 	return (dest);
 }
+
 size_t	ft_strlen(const char	*str)
 {
 	size_t	i;

@@ -6,15 +6,15 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 15:54:01 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/11 15:57:45 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 13:33:00 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    if (argc != 1)
-        push_swap(argv, argc);
-    return (0);
+	if (argc != 1)
+		push_swap(argv, argc);
+	return (0);
 }

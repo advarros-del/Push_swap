@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 15:33:42 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/11 12:47:18 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 13:31:06 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	bigger_group(t_list *a, int *index)
 	int	c;
 	int	temp;
 	int	counter;
-	int temp_index;
+	int	temp_index;
 
 	counter = 1;
 	temp_index = a->index;
@@ -70,7 +70,7 @@ void	calculate_b(t_list *node_a, t_list **b, int *mv_b)
 
 	node_b = *b;
 	while (node_b->next != NULL && node_a->content < node_b->content)
-			node_b = node_b->next;
+		node_b = node_b->next;
 	if (node_b->index == ft_lstsize(*b))
 		*mv_b = 1;
 	else if (node_b->index - 1 <= ft_lstsize(*b) / 2)
@@ -82,7 +82,7 @@ void	calculate_b(t_list *node_a, t_list **b, int *mv_b)
 void	put_the_index(t_list **x)
 {
 	t_list	*node;
-	int	n;
+	int		n;
 
 	node = *x;
 	n = 1;
@@ -94,12 +94,12 @@ void	put_the_index(t_list **x)
 	}
 	node->index = n;
 }
+
 void	is_bigger(int *counter, int *c, int *index, int *temp_index)
 {
 	if (*counter < *c)
 	{
 		*counter = *c;
-		*index = *temp_index; 
+		*index = *temp_index;
 	}
-	
 }

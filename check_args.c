@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:07:46 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/01/28 16:02:34 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:25:59 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list	**wtf_is_this(char **argv, int argc, t_list **a)
 		j = 0;
 		while (argv[i][j] != '\0' && is_dg_or_sp(argv[i][j], &s) == 1)
 			j++;
-		if (is_dg_or_sp(argv[i][j], &s) == 0)
+		if (argv[i][j] != '\0')
 			return (NULL);
 		else if (s == 1)
 			gimmi_nbr(argv[i], a);
@@ -57,7 +57,6 @@ t_list	**gimmi_nbr(char *str, t_list **a)
 	char	**matrix;
 	int		i;
 	int		n;
-	t_list	**temp;
 
 	matrix = ft_split(str, ' ');
 	if (matrix == NULL)
