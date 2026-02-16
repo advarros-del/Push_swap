@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:50:08 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/01/28 16:05:53 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 16:59:52 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,6 @@ t_list	*ft_lstlast(t_list *lst)
 	while (lst->next != NULL)
 		lst = lst->next;
 	return (lst);
-}
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	new->next = *lst;
-	*lst = new;
 }
 
 int	ft_lstsize(t_list *lst)

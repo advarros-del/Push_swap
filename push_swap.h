@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:15:34 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 13:07:43 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 16:57:44 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,45 +25,42 @@ typedef struct s_list
 	struct s_list	*prev;
 }	t_list;
 
+t_list	*push_swap(char **argv, int argc);
 t_list	**wtf_is_this(char **argv, int argc, t_list **a);
+int		is_dg_or_sp(int c, int *s);
 t_list	**send_to_list(int n, t_list **a);
 t_list	**gimmi_nbr(char *str, t_list **a);
 void	ft_free_all(char **str, int i);
-void	swapeanding(t_list **x);
-void	pushing(t_list **bye, t_list **hey);
-void	rotating(t_list **x);
-void	rerotating(t_list **x);
-int		is_dg_or_sp(int c, int *s);
 int		ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);
-void	plus_index(t_list *x);
-void	minus_index(t_list *x);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char *str);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(void *content);
 void	ft_lstclear(t_list **lst);
 void	ft_lstdelone(t_list *lst);
 void	put_the_index(t_list **x);
-void	calculate_b(t_list *node_a, t_list **b, int *mv_b);
 void	sort_b(t_list **a, t_list **b);
 int		bigger_group(t_list *a, int *index);
+void	is_bigger(int *counter, int *c, int *index, int *temp_index);
 void	mv_calculator(t_list **a, t_list **b);
 void	calculate_b(t_list *node_a, t_list **b, int *mv_b);
-void	put_the_index(t_list **x);
 int		check_and_mv_both(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
 void	min_mv(t_list **a, int *minimun);
 void	group_on_b(t_list **a, t_list **b);
-void	is_rotating(int *indx_b, t_list **b, int *the_move, int *code_mv);
-void	is_rotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
-void	resort_b(t_list **b, int the_move, int code_mv);
-void	is_bigger(int *counter, int *c, int *index, int *temp_index);
-t_list	*push_swap(char **argv, int argc);
 void	prepare_b(t_list *node_b, t_list **b, int *the_move, int *code_mv);
-void	prepare_and_send_a(t_list **a, t_list *node_a);
+void	prepare_and_send_a(t_list **a, t_list **b,t_list *node_a);
+void	resort_b(t_list **b, int the_move, int code_mv);
+void	is_rotating_a(int *indx_a, t_list **a);
+void	is_rotating_b(int *indx_b, t_list **b, int *the_move, int *code_mv);
+void	is_rerotating_a(int *indx_a, t_list **a);
+void	is_rotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
 void	is_rerotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-size_t	ft_strlen(const char	*str);
+void	swapeanding(t_list **x);
+void	pushing(t_list **bye, t_list **hey);
+void	rotating(t_list **x);
+void	rerotating(t_list **x);
 
 #endif

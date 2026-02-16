@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:07:46 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 14:25:59 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/16 16:38:02 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ t_list	**send_to_list(int n, t_list **a)
 	t_list	*new_node;
 
 	new_node = ft_lstnew(&n);
-	if (n <= 0)
-		ft_lstadd_front(a, new_node);
-	else
 		ft_lstadd_back(a, new_node);
 	return (a);
 }
