@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:01:17 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 19:55:03 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:28:54 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	prepare_b(t_list *node_b, t_list **b, int *the_move, int *code_mv)// no fun
 {
 	int	indx_b;
 
-	indx_b = node_b ->index + 1;
+	indx_b = node_b->index + 1;
 	if (node_b->index == 2)
 	{
 		swapeanding(b);
@@ -58,7 +58,7 @@ void	prepare_b(t_list *node_b, t_list **b, int *the_move, int *code_mv)// no fun
 		{
 			rerotating(b);
 			write (1, "rrb\n", 4);
-			the_move ++;
+			(*the_move)++;
 			*code_mv = 2;
 		}
 	}
@@ -71,24 +71,15 @@ void	prepare_and_send_a(t_list **a, t_list **b, t_list *node_a)// no funciona, n
 	indx_a = node_a->index;
 	if (node_a->index <= ft_lstsize(*a) / 2
 		&& node_a->index != 1 && node_a->index != 2)
-	{
 		is_rotating_a(&indx_a, a);
-		write(1, "pa\n", 3);
-		pushing(a, b);
-	}
 	else if (node_a->index == 2)
 	{
 		swapeanding(a);
 		write(1, "sa\n", 3);
-		write(1, "pa\n", 3);
-		pushing(a, b);
 	}
-	else if (node_a->index > ft_lstsize(*a) / 2
-		&& node_a->index != ft_lstsize(*a))
-	{
+	else if (node_a->index > ft_lstsize(*a) / 2)
 		is_rerotating_a(&indx_a, a);
-		write(1, "pa\n", 3);
-		pushing(a, b);
-	}
+	write(1, "pb\n", 3);
+	pushing(a, b);
 }
 

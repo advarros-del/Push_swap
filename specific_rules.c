@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:22:19 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 17:22:57 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/17 09:29:53 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,18 @@ void	is_rotating_b(int *indx_b, t_list **b, int *the_move, int *code_mv)
 }
 void	is_rerotating_a(int *indx_a, t_list **a)
 {
-	while (--(*indx_a) -1 != 0)
+	if ((*indx_a) == ft_lstsize(*a))
 	{
 		rerotating(a);
 		write (1, "rra\n", 4);
+	}
+	else
+	{
+		while (--(*indx_a) -1 != 0)
+		{
+			rerotating(a);
+			write (1, "rra\n", 4);
+		}
 	}
 }
 

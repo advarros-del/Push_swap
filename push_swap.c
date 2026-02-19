@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:45 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 19:19:17 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/17 15:22:51 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,11 @@ void	sort_b(t_list **a, t_list **b)
 		min_mv(a, &minimun);
 		while (minimun != node_a->mv)
 			node_a = node_a->next;
-		while (node_b != NULL && node_a->content > node_b->content)
+		while (node_b != NULL && node_a->content < node_b->content)
 			node_b = node_b->next;
-		the_move = node_a->index - node_b->index;
+		the_move = 0 /*node_a->index - node_b->index*/;
+		if (the_move < 0)
+			the_move *= -1;
 		code_mv = check_and_mv_both(a, b, node_a, node_b);
 		prepare_b(node_b, b, &the_move, &code_mv);
 		prepare_and_send_a(a, b, node_a);
@@ -93,7 +95,7 @@ void	min_mv(t_list **a, int *minimun)
 
 	node_a = *a;
 	*minimun = node_a->mv;
-	while (node_a->next != NULL)
+	while (node_a != NULL)
 	{
 		if (*minimun > node_a->mv)
 			*minimun = node_a->mv;
@@ -101,17 +103,19 @@ void	min_mv(t_list **a, int *minimun)
 	}
 }
 
-void	resort_b(t_list **b, int the_move, int code_mv)
+void	resort_b(t_list **b, int the_move, int code_mv)// ha hecho demasiadas veces, revisar
 {
 	while (the_move != 0)
 	{
 		if (code_mv == 1)
 		{
 			rerotating(b);
+			write (1, "rrb\n", 4);
 		}
 		else if (code_mv == 2)
 		{
 			rotating(b);
+			write (1, "rb\n", 3);
 		}
 		the_move--;
 	}
