@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:01:17 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/17 13:28:54 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/19 12:36:17 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,13 @@ int	check_and_mv_both(t_list **a, t_list **b, t_list *node_a, t_list *node_b)
 		return (0);
 }
 
-void	prepare_b(t_list *node_b, t_list **b, int *the_move, int *code_mv)// no funciona. no cambia al que tiene que ir
+void	prepare_b(t_list *node_b, t_list **b, int *the_move, int *code_mv)
 {
 	int	indx_b;
 
 	indx_b = node_b->index + 1;
 	if (node_b->index == 2)
-	{
-		swapeanding(b);
-		write(1, "sb\n", 3);
-	}
+		*code_mv = 3;
 	else if (node_b->index <= ft_lstsize(*b) / 2
 		&& node_b->index != 1 && node_b->index != 2)
 		is_rotating_b(&indx_b, b, the_move, code_mv);
@@ -64,7 +61,7 @@ void	prepare_b(t_list *node_b, t_list **b, int *the_move, int *code_mv)// no fun
 	}
 }
 
-void	prepare_and_send_a(t_list **a, t_list **b, t_list *node_a)// no funciona, no hace el rotate ni nada. revisar
+void	prepare_and_send_a(t_list **a, t_list **b, t_list *node_a)
 {
 	int	indx_a;
 
@@ -77,7 +74,7 @@ void	prepare_and_send_a(t_list **a, t_list **b, t_list *node_a)// no funciona, n
 		swapeanding(a);
 		write(1, "sa\n", 3);
 	}
-	else if (node_a->index > ft_lstsize(*a) / 2)
+	else if (node_a->index > ft_lstsize(*a) / 2 && node_a->index != 1)
 		is_rerotating_a(&indx_a, a);
 	write(1, "pb\n", 3);
 	pushing(a, b);

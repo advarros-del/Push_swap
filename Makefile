@@ -6,7 +6,7 @@
 #    By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/17 15:46:01 by adrvarga          #+#    #+#              #
-#    Updated: 2026/02/16 13:11:32 by adrvarga         ###   ########.fr        #
+#    Updated: 2026/02/19 10:46:46 by adrvarga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = push_swap
 
 #compiler that you will going to use
-CC = cc 
+GCC = cc 
 
 #Flags that the compiler have to be use.
 FLAGS = -Wextra -Werror -Wall -g 

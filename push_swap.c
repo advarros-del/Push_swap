@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:45 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/17 15:22:51 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/19 13:29:28 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,9 @@ void	min_mv(t_list **a, int *minimun)
 
 void	resort_b(t_list **b, int the_move, int code_mv)// ha hecho demasiadas veces, revisar
 {
+	static int VUELTA_BORRAME = 0;
+	VUELTA_BORRAME++;
+
 	while (the_move != 0)
 	{
 		if (code_mv == 1)
@@ -116,6 +119,11 @@ void	resort_b(t_list **b, int the_move, int code_mv)// ha hecho demasiadas veces
 		{
 			rotating(b);
 			write (1, "rb\n", 3);
+		}
+		else if (code_mv == 3)
+		{
+			swapeanding(b);
+			write (1, "sb\n", 3);
 		}
 		the_move--;
 	}
