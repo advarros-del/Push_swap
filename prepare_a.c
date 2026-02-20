@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 15:33:42 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 19:18:23 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/20 13:27:09 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,19 @@ void	mv_calculator(t_list **a, t_list **b)
 	int		mv_a;
 	int		mv_b;
 	t_list	*node_a;
-
+	int		size;
+	
+	size = ft_lstsize(*a);
 	mv_b = 0;
 	put_the_index(a);
 	put_the_index(b);
 	node_a = *a;
 	while (node_a != NULL)
 	{
-		if (node_a->index == ft_lstsize(*a))
+		if (node_a->index == size)
 			mv_a = 2;
-		else if (node_a->index > (ft_lstsize(*a) / 2))
-			mv_a = (ft_lstsize(*a) - ft_lstsize(*a) / 2) + 2;
+		else if (node_a->index > (size / 2))
+			mv_a = (size - size / 2) + 2;
 		else
 			mv_a = node_a->index;
 		calculate_b(node_a, b, &mv_b);
@@ -67,16 +69,18 @@ void	mv_calculator(t_list **a, t_list **b)
 void	calculate_b(t_list *node_a, t_list **b, int *mv_b)
 {
 	t_list	*node_b;
-
+	int		size;
+	
+	size = ft_lstsize(*b);
 	node_b = *b;
 	while (node_b->next != NULL && node_a->content < node_b->content)
 		node_b = node_b->next;
-	if (node_b->index == ft_lstsize(*b))
+	if (node_b->index == size)
 		*mv_b = 1;
-	else if (node_b->index - 1 <= ft_lstsize(*b) / 2)
+	else if (node_b->index - 1 <= size / 2)
 		*mv_b = (node_b->index - 1) * 2;
 	else
-		*mv_b = 2 * (ft_lstsize(*b) - node_b->index + 1);
+		*mv_b = 2 * (size - node_b->index + 1);
 }
 
 void	put_the_index(t_list **x)

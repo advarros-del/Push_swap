@@ -5,11 +5,11 @@
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
-      "args": [],
+      "args": [61 14 87 5],
       "stopAtEntry": false,
       "externalConsole": false,
       "cwd": "/home/adrvarga/cursus/push_swap/COPIA_PUSH",
-      "program": "/home/adrvarga/cursus/push_swap/COPIA_PUSH/build/Debug/outDebug",
+      "program": "/home/adrvarga/cursus/push_swap/COPIA_PUSH/a.out",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

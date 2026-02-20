@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:15:34 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 19:13:31 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/20 17:57:15 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		bigger_group(t_list *a, int *index);
 void	is_bigger(int *counter, int *c, int *index, int *temp_index);
 void	mv_calculator(t_list **a, t_list **b);
 void	calculate_b(t_list *node_a, t_list **b, int *mv_b);
+int		find_and_set_b(t_list **b, t_list **node_b, int value, int *code_mv);
 int		check_and_mv_both(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
 void	min_mv(t_list **a, int *minimun);
 void	group_on_b(t_list **a, t_list **b);
