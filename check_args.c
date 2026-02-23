@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:07:46 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 19:13:13 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/23 22:15:34 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ t_list	**gimmi_nbr(char *str, t_list **a)
 	i = 0;
 	while (matrix[i])
 	{
+		if (is_empty(matrix[i] == 0)
+			return (ft_free_all(matrix, i), NULL); 
 		n = ft_atoi(matrix[i]);
 		if (n == 0)//Cambiar a otro error porque 0 es un numero posible. 
 			return (NULL);
@@ -79,4 +81,22 @@ void	ft_free_all(char **str, int i)
 		i--;
 	}
 	free(str);
+}
+
+int	is_empty(char *srt)
+{
+	int	n;
+	int	i;
+
+	i = 0; 
+	n = 1;
+	if (str[0] == '\0')
+		return (0);
+	while (str[i])
+	{
+		if (str[i] != 32)
+			n = 0;
+		i++;
+	}
+	return (n);
 }
