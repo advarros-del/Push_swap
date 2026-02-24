@@ -6,7 +6,7 @@
 #    By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/17 15:46:01 by adrvarga          #+#    #+#              #
-#    Updated: 2026/02/19 10:46:46 by adrvarga         ###   ########.fr        #
+#    Updated: 2026/02/24 12:57:40 by adrvarga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ GCC = cc
 FLAGS = -Wextra -Werror -Wall -g 
 
 #All files .c that you need
-SRC = ft_atoi.c\
+SRC = ft_atol.c\
 	check_args.c\
 	prepare_a.c\
 	is_dg_or_sp.c\
@@ -31,6 +31,7 @@ SRC = ft_atoi.c\
 	specific_rules.c\
 	utils.c\
 	ft_split.c\
+	find_and_set_b.c
 	
 #Transform all the .c to .o
 OBJ := $(SRC:%.c=%.o)

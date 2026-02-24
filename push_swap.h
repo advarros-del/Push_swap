@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:15:34 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/20 17:57:15 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/24 11:19:04 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# ifndef MAX_INT
+#  define MAX_INT 2147483647
+# endif
+# ifndef MIN_INT
+#  define MIN_INT -2147483648
+# endif
+
 
 typedef struct s_list
 {
@@ -28,10 +35,11 @@ typedef struct s_list
 t_list	*push_swap(char **argv, int argc);
 t_list	**wtf_is_this(char **argv, int argc, t_list **a);
 int		is_dg_or_sp(int c, int *s);
-t_list	**send_to_list(int n, t_list **a);
+int		is_empty(char *str);
+t_list	**send_to_list(long int n, t_list **a);
 t_list	**gimmi_nbr(char *str, t_list **a);
 void	ft_free_all(char **str, int i);
-int		ft_atoi(const char *nptr);
+int		ft_atol(const char *nptr);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);

@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:45 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/20 18:27:58 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/24 12:51:41 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	sort_b(t_list **a, t_list **b)
 		while (minimun != node_a->mv)
 			node_a = node_a->next;
 		the_move = find_and_set_b(b, &node_b, node_a->content, &code_mv);
-		code_mv = check_and_mv_both(a, b, node_a, node_b);
+		if (code_mv != 4)
+			code_mv = check_and_mv_both(a, b, node_a, node_b);
 		if (code_mv != 0 && code_mv < 4)
 			the_move = node_a->index - node_b->index;
 		prepare_b(node_b, b, &the_move, &code_mv);

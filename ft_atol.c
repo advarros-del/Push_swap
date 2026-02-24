@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:52:55 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 13:34:59 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/24 11:18:37 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
  * atoi transform an ascii number into a regular number in the int *
  ******************************************************************/
 
-int	ft_atoi(const char *nptr)
+int	ft_atol(const char *nptr)
 {
 	int	i;
-	int	dest;
-	int	n;
+	long int	dest;
+	long int	n;
 
 	dest = 0;
 	n = 1;

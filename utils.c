@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:01:17 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/20 18:04:15 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/24 13:29:14 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,12 @@ void	prepare_b(t_list *node_b, t_list **b, int *the_move, int *code_mv)
 	int size;
 	
 	size = ft_lstsize(*b);
-	i = node_b->index - 1;
+	i = node_b->index;
 	if (i == 2)
-		*code_mv = 3; 
+	{
+		*code_mv = 3;
+		(*the_move)++;
+	}	
 	else if (i <= size / 2 && i > 2)
 		is_rotating_b(&i, b, the_move, code_mv);
 	else if (i > size / 2 && i != size)
