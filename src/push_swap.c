@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: adrvarga <adrvarga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:45 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/25 20:04:41 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/25 23:02:13 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,10 @@ t_list	*push_swap(char **argv, int argc)
 	{
 		b = NULL;
 		//group_on_b(&a, &b);
-		pushing(&a, &b);
+		pb(&a, &b);
 		sort_b(&a, &b);
 		while (b != NULL)
-		{
-			pushing(&b, &a);
-			write(1, "pa\n", 3);
-		}
+			pa(&b, &a);
 		ft_lstclear(&b);
 	}
 	return (a);

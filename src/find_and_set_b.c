@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_and_set_b.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: adrvarga <adrvarga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 17:50:22 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/25 19:40:43 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/25 23:01:33 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,8 @@ void three_args(t_list **a)
     (*a) = (*a)->next;
     if (x > y  && x > z)
     {
-        rotating(a);
-        write(1, "ra\n", 3);
+        ra(a);
         if (!is_sort(*a))
-            swapeanding(a);
+            sa(a);
     }
 }

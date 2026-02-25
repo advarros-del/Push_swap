@@ -9,7 +9,8 @@
       "stopAtEntry": false,
       "externalConsole": false,
       "cwd": "/home/adrvarga/cursus/push_swap/COPIA_PUSH",
-      "program": "/home/adrvarga/cursus/push_swap/COPIA_PUSH/push_swap",
+      "program": "/home/adrian/42_proyect/push_swap v2/push_swap",
+
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
