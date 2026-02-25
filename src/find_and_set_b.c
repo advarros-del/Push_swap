@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 17:50:22 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/25 19:04:42 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/25 19:40:43 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,24 @@ int check_mv(int a, int b)
     if (c < 0)
         c *= -1;
     return (c);
+}
+void three_args(t_list **a)
+{
+    int x;
+    int y;
+    int z;
+
+    x = (*a)->content;
+    (*a) = (*a)->next;
+    y = (*a)->content;
+    (*a) = (*a)->next;
+    z = (*a)->content;
+    (*a) = (*a)->next;
+    if (x > y  && x > z)
+    {
+        rotating(a);
+        write(1, "ra\n", 3);
+        if (!is_sort(*a))
+            swapeanding(a);
+    }
 }

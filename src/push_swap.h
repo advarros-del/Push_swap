@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:15:34 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/25 19:05:24 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/25 19:59:31 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,14 @@ void	is_rotating_b(int *indx_b, t_list **b, int *the_move, int *code_mv);
 void	is_rerotating_a(int *indx_a, t_list **a);
 void	is_rotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
 void	is_rerotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
-void	swapeanding(t_list **x);
-void	pushing(t_list **bye, t_list **hey);
-void	rotating(t_list **x);
-void	rerotating(t_list **x);
-
+void	sa(t_list **x);
+void	sb(t_list **x);
+void	pa(t_list **bye, t_list **hey);
+void	pb(t_list **bye, t_list **hey);
+void	ra(t_list **x);
+void	rb(t_list **x);
+void	rr(t_list **x, t_list **y);
+void	rra(t_list **x);
+void	rrb(t_list **x);
+void	rrr(t_list **x, t_list **y);
 #endif

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules.c                                            :+:      :+:    :+:   */
+/*   rules1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:45:53 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/02 19:08:49 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/25 20:01:06 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swapeanding(t_list **x)
+void	sa(t_list **x)
 {
 	t_list	*first;
 	t_list	*second;
@@ -22,9 +22,22 @@ void	swapeanding(t_list **x)
 	first->next = second->next;
 	second->next = first;
 	*x = second;
+	write(1, "sa\n", 3);
+}
+void	sb(t_list **x)
+{
+	t_list	*first;
+	t_list	*second;
+
+	first = *x;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*x = second;
+	write(1, "sb\n", 3);
 }
 
-void	pushing(t_list **bye, t_list **hey)
+void	pa(t_list **bye, t_list **hey)
 {
 	t_list	*temp;
 
@@ -32,9 +45,20 @@ void	pushing(t_list **bye, t_list **hey)
 	*bye = (*bye)->next;
 	temp->next = *hey;
 	*hey = temp;
+	write(1, "pa\n", 3);
+}
+void	pb(t_list **bye, t_list **hey)
+{
+	t_list	*temp;
+
+	temp = *bye;
+	*bye = (*bye)->next;
+	temp->next = *hey;
+	*hey = temp;
+	write(1, "pb\n", 3);
 }
 
-void	rotating(t_list **x)
+void	ra(t_list **x)
 {
 	t_list	*first;
 	t_list	*last;
@@ -46,21 +70,6 @@ void	rotating(t_list **x)
 	*x = first->next;
 	first->next = NULL;
 	last->next = first;
+	write(1, "ra\n", 3);
 }
 
-void	rerotating(t_list **x)
-{
-	t_list	*last;
-	t_list	*prev;
-
-	prev = NULL;
-	last = *x;
-	while (last->next != NULL)
-	{
-		prev = last;
-		last = last->next;
-	}
-	prev->next = NULL;
-	last->next = *x;
-	*x = last;
-}

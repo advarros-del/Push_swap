@@ -6,7 +6,7 @@
 #    By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/17 15:46:01 by adrvarga          #+#    #+#              #
-#    Updated: 2026/02/25 18:03:27 by adrvarga         ###   ########.fr        #
+#    Updated: 2026/02/25 20:02:19 by adrvarga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC = ft_atol.c\
 	lst_function.c\
 	main.c\
 	push_swap.c\
-	rules.c\
+	rules1.c\
+	rules2.c\
 	specific_rules.c\
 	utils.c\
 	ft_split.c\

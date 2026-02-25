@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:45 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/25 19:09:13 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/25 20:04:41 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_list	*push_swap(char **argv, int argc)
 	if (!is_sort(a))
 	{
 		b = NULL;
-		group_on_b(&a, &b);
+		//group_on_b(&a, &b);
+		pushing(&a, &b);
 		sort_b(&a, &b);
 		while (b != NULL)
 		{
@@ -53,12 +54,10 @@ void	group_on_b(t_list **a, t_list **b)
 	{
 		while (node_a->index != index)
 		{
-			rotating(a);
-			write(1, "ra\n", 3);
+			ra(a);
 			node_a = *a;
 		}
-		pushing(a, b);
-		write (1, "pb\n", 3);
+		pb(a, b);
 		counter--;
 	}
 }
@@ -111,20 +110,11 @@ void	resort_b(t_list **b, int the_move, int code_mv)
 	while (the_move != 0)
 	{
 		if (code_mv == 1)
-		{
-			rerotating(b);
-			write (1, "rrb\n", 4);
-		}
+			rrb(b);
 		else if (code_mv == 2 || code_mv == 4)
-		{
-			rotating(b);
-			write (1, "rb\n", 3);
-		}
+			rb(b);
 		else if (code_mv == 3)
-		{
-			swapeanding(b);
-			write (1, "sb\n", 3);
-		}
+			sb(b);
 		the_move--;
 	}
 }
