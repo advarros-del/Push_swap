@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:45 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/24 12:51:41 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/25 19:09:13 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@ t_list	*push_swap(char **argv, int argc)
 		write(2, "Error\n", 6);
 		return (NULL);
 	}
-	b = NULL;
-	group_on_b(&a, &b);
-	sort_b(&a, &b);
-	while (b != NULL)
+	if (!is_sort(a))
 	{
-		pushing(&b, &a);
-		write(1, "pa\n", 3);
+		b = NULL;
+		group_on_b(&a, &b);
+		sort_b(&a, &b);
+		while (b != NULL)
+		{
+			pushing(&b, &a);
+			write(1, "pa\n", 3);
+		}
+		ft_lstclear(&b);
 	}
-	ft_lstclear(&b);
 	return (a);
 }
 
@@ -82,7 +85,7 @@ void	sort_b(t_list **a, t_list **b)
 		if (code_mv != 4)
 			code_mv = check_and_mv_both(a, b, node_a, node_b);
 		if (code_mv != 0 && code_mv < 4)
-			the_move = node_a->index - node_b->index;
+			the_move = check_mv(node_a->index, node_b->index);
 		prepare_b(node_b, b, &the_move, &code_mv);
 		prepare_and_send_a(a, b, node_a);
 		resort_b(b, the_move, code_mv);

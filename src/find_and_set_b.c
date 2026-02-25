@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otro_puto_archivo.c                                :+:      :+:    :+:   */
+/*   find_and_set_b.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 17:50:22 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/20 18:00:46 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/25 19:04:42 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,29 @@ int    find_and_set_b(t_list **b, t_list **node_b, int value, int *code_mv)
         return (1);
 	}
     return (0);
+}
+int	is_sort(t_list *a)
+{
+    int n_prev;
+
+    n_prev = a->content;
+    a = a->next;
+
+    while (a)
+    {
+        if (n_prev > a->content)
+            return (0);
+		n_prev = a->content;
+		a = a->next;
+    }
+	return (1);
+}
+int check_mv(int a, int b)
+{
+    int c;
+
+    c = a - b;
+    if (c < 0)
+        c *= -1;
+    return (c);
 }
