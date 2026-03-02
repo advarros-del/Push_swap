@@ -6,39 +6,39 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 15:33:42 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/20 13:27:09 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/26 17:01:42 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	bigger_group(t_list *a, int *index)
-{
-	int	c;
-	int	temp;
-	int	counter;
-	int	temp_index;
+// int	bigger_group(t_list *a, int *index)
+// {
+// 	int	c;
+// 	int	temp;
+// 	int	counter;
+// 	int	temp_index;
 
-	counter = 1;
-	temp_index = a->index;
-	temp = a->content;
-	c = 1;
-	while (a != NULL)
-	{
-		if (a->content > temp)
-			c++;
-		else
-		{
-			is_bigger(&counter, &c, index, &temp_index);
-			c = 1;
-			temp_index = a->index;
-		}
-		temp = a->content;
-		a = a->next;
-	}
-	is_bigger(&counter, &c, index, &temp_index);
-	return (counter);
-}
+// 	counter = 1;
+// 	temp_index = a->index;
+// 	temp = a->content;
+// 	c = 1;
+// 	while (a != NULL)
+// 	{
+// 		if (a->content > temp)
+// 			c++;
+// 		else
+// 		{
+// 			is_bigger(&counter, &c, index, &temp_index);
+// 			c = 1;
+// 			temp_index = a->index;
+// 		}
+// 		temp = a->content;
+// 		a = a->next;
+// 	}
+// 	is_bigger(&counter, &c, index, &temp_index);
+// 	return (counter);
+// }
 
 void	mv_calculator(t_list **a, t_list **b)
 {
@@ -99,11 +99,11 @@ void	put_the_index(t_list **x)
 	node->index = n;
 }
 
-void	is_bigger(int *counter, int *c, int *index, int *temp_index)
-{
-	if (*counter < *c)
-	{
-		*counter = *c;
-		*index = *temp_index;
-	}
-}
+// void	is_bigger(int *counter, int *c, int *index, int *temp_index)
+// {
+// 	if (*counter < *c)
+// 	{
+// 		*counter = *c;
+// 		*index = *temp_index;
+// 	}
+// }

@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:07:46 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/24 12:55:13 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/26 14:34:09 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	**wtf_is_this(char **argv, int argc, t_list **a)
 	{
 		s = 0;
 		j = 0;
-		while (argv[i][j] != '\0' && is_dg_or_sp(argv[i][j], &s) == 1)
+		while (argv[i][j] != '\0' && is_dg_or_sp(argv[i], &s) == 1)
 			j++;
 		if (is_empty(argv[i]) == 0)
 			return (NULL);

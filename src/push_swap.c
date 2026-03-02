@@ -3,61 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrvarga <adrvarga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:45 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/25 23:02:13 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:04:49 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*push_swap(char **argv, int argc)
+t_list	*push_swap(t_list *a)
 {
-	t_list	*a;
 	t_list	*b;
 
-	a = NULL;
-	wtf_is_this(argv, argc, &a);
-	if (a == NULL)
-	{
-		write(2, "Error\n", 6);
-		return (NULL);
-	}
 	if (!is_sort(a))
 	{
-		b = NULL;
-		//group_on_b(&a, &b);
-		pb(&a, &b);
-		sort_b(&a, &b);
-		while (b != NULL)
-			pa(&b, &a);
-		ft_lstclear(&b);
+		if (ft_lstsize(a) <= 3)
+			three_args(&a);
+		else
+		{
+			b = NULL;
+			pb(&a, &b);
+			sort_b(&a, &b);
+			while (b != NULL)
+				pa(&b, &a);
+			ft_lstclear(&b);
+		}
 	}
 	return (a);
 }
 
-void	group_on_b(t_list **a, t_list **b)
-{
-	int		index;
-	int		counter;
-	t_list	*node_a;
+// void	group_on_b(t_list **a, t_list **b)
+// {
+// 	int		index;
+// 	int		counter;
+// 	t_list	*node_a;
 
-	node_a = *a;
-	index = 1;
-	put_the_index(a);
-	counter = bigger_group(*a, &index);
-	while (counter != 0)
-	{
-		while (node_a->index != index)
-		{
-			ra(a);
-			node_a = *a;
-		}
-		pb(a, b);
-		counter--;
-	}
-}
+// 	node_a = *a;
+// 	index = 1;
+// 	put_the_index(a);
+// 	counter = bigger_group(*a, &index);
+// 	while (counter != 0)
+// 	{
+// 		while (node_a->index != index)
+// 		{
+// 			ra(a);
+// 			node_a = *a;
+// 		}
+// 		pb(a, b);
+// 		counter--;
+// 	}
+// }
 
 void	sort_b(t_list **a, t_list **b)
 {

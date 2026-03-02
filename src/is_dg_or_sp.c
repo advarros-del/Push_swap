@@ -6,21 +6,32 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 15:27:19 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 13:49:28 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/26 14:35:56 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_dg_or_sp(int c, int *s)
+int	is_dg_or_sp(char *arg, int *s)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	else if (c == 32)
+	int	i;
+	
+	i = 0;
+	while(arg[i] != '\0')
 	{
-		*s = 1;
-		return (1);
+		if (arg[i] == '-' && arg[i + 1] != '\0' && arg[i + 1] != 32)
+			i++;
+		else if (arg[i] == '+' && arg[i + 1] != '\0' && arg[i + 1] != 32)
+			i++;
+		else if (arg[i] >= 48 && arg[i] <= 57)
+			i++;
+		else if (arg[i] == 32)
+		{
+			*s = 1;
+			i++;
+		}
+		else
+			return (0);
 	}
-	else
-		return (0);
+	return (1);
 }

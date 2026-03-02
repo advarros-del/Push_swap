@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:01:17 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/25 20:23:12 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/02 14:11:12 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ void	prepare_b(t_list *node_b, t_list **b, int *the_move, int *code_mv)
 	
 	size = ft_lstsize(*b);
 	i = node_b->index;
+	if (i == size)
+		return;
 	if (i == 2)
 	{
-		sb(b);
 		*code_mv = 3;
 		(*the_move)++;
 	}	
@@ -81,5 +82,25 @@ void	prepare_and_send_a(t_list **a, t_list **b, t_list *node_a)
 		while (--i != 0)
 				rra(a);
 	}
-	pa(a, b);
+	pb(a, b);
+}
+int dupply(t_list *a)
+{
+	t_list *aux;
+	int	num;	
+
+	while (a)
+	{
+		num = a->content;
+		aux = a;
+		aux = aux->next;
+		while (aux)
+		{
+			if (num == aux->content)
+				return (1);
+			aux = aux->next;
+		}
+		a = a->next;
+	}
+	return (0);
 }

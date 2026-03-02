@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_and_set_b.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrvarga <adrvarga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 17:50:22 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/25 23:01:33 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/02/26 16:33:29 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ int    find_and_set_b(t_list **b, t_list **node_b, int value, int *code_mv)
 {
     while (*node_b != NULL && value < (*node_b)->content)
         *node_b = (*node_b)->next;
-    if (*node_b == NULL)
+    if (*node_b == NULL || *node_b == ft_lstlast(*b))
     {
         *node_b = ft_lstlast(*b);
         *code_mv = 4;
         return (1);
 	}
+        code_mv = 0;
     return (0);
 }
 int	is_sort(t_list *a)
@@ -67,4 +68,13 @@ void three_args(t_list **a)
         if (!is_sort(*a))
             sa(a);
     }
+    if (x < y && x < z)
+    {
+        rra(a);
+        sa(a);
+    }
+    if (x > z)
+        rra(a);
+    else
+        sa(a);
 }

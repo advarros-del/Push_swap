@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:15:34 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/25 19:59:31 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/02 14:10:53 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ typedef struct s_list
 	struct s_list	*prev;
 }	t_list;
 
-t_list	*push_swap(char **argv, int argc);
+t_list	*push_swap(t_list *a);
 t_list	**wtf_is_this(char **argv, int argc, t_list **a);
-int		is_dg_or_sp(int c, int *s);
+int		is_dg_or_sp(char *arg, int *s);
 int		is_empty(char *str);
 t_list	**send_to_list(long int n, t_list **a);
 t_list	**gimmi_nbr(char *str, t_list **a);
@@ -49,6 +49,8 @@ t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int content);
 void	ft_lstclear(t_list **lst);
 void	ft_lstdelone(t_list *lst);
+int		dupply(t_list *a);
+void 	three_args(t_list **a);
 int		is_sort(t_list *a);
 void	is_bigger(int *counter, int *c, int *index, int *temp_index);
 int		bigger_group(t_list *a, int *index);
