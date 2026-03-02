@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap2.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:15:34 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/02 18:47:01 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/02 18:49:40 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,16 @@
 
 typedef struct s_list
 {
-	int				content;
+	int				value;
 	int				index;
-	int				mv;
+	int				pos;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_list	*next;
 }	t_list;
 
-t_list	*push_swap(t_list *a);
+t_list	*push_swap2(t_list *a);
 t_list	**wtf_is_this(char **argv, int argc, t_list **a);
 int		is_dg_or_sp(char *arg, int *s);
 int		is_empty(char *str);
@@ -51,23 +54,7 @@ void	ft_lstdelone(t_list *lst);
 int		dupply(t_list *a);
 void 	three_args(t_list **a);
 int		is_sort(t_list *a);
-void	sort_b(t_list **a, t_list **b);
-void	put_the_index(t_list **x);
-void	mv_calculator(t_list **a, t_list **b);
-void	calculate_b(t_list *node_a, t_list **b, int *mv_b);
-int		find_and_set_b(t_list **b, t_list **node_b, int value, int *code_mv);
-int		check_and_mv_both(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
-void	min_mv(t_list **a, int *minimun);
-void	group_on_b(t_list **a, t_list **b);
-int		check_mv(int a, int b);
-void	prepare_b(t_list *node_b, t_list **b, int *the_move, int *code_mv);
-void	prepare_and_send_a(t_list **a, t_list **b,t_list *node_a);
-void	resort_b(t_list **b, int the_move, int code_mv);
-void	is_rotating_a(int *indx_a, t_list **a);
-void	is_rotating_b(int *indx_b, t_list **b, int *the_move, int *code_mv);
-void	is_rerotating_a(int *indx_a, t_list **a);
-void	is_rotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
-void	is_rerotating_all(t_list **a, t_list **b, t_list *node_a, t_list *node_b);
+
 void	sa(t_list **x);
 void	sb(t_list **x);
 void	pa(t_list **bye, t_list **hey);

@@ -6,39 +6,11 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 15:33:42 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/26 17:01:42 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/02 16:04:18 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int	bigger_group(t_list *a, int *index)
-// {
-// 	int	c;
-// 	int	temp;
-// 	int	counter;
-// 	int	temp_index;
-
-// 	counter = 1;
-// 	temp_index = a->index;
-// 	temp = a->content;
-// 	c = 1;
-// 	while (a != NULL)
-// 	{
-// 		if (a->content > temp)
-// 			c++;
-// 		else
-// 		{
-// 			is_bigger(&counter, &c, index, &temp_index);
-// 			c = 1;
-// 			temp_index = a->index;
-// 		}
-// 		temp = a->content;
-// 		a = a->next;
-// 	}
-// 	is_bigger(&counter, &c, index, &temp_index);
-// 	return (counter);
-// }
 
 void	mv_calculator(t_list **a, t_list **b)
 {
@@ -75,7 +47,9 @@ void	calculate_b(t_list *node_a, t_list **b, int *mv_b)
 	node_b = *b;
 	while (node_b->next != NULL && node_a->content < node_b->content)
 		node_b = node_b->next;
-	if (node_b->index == size)
+	if (node_b->index == 1)
+		return;
+	else if (node_b->index == size)
 		*mv_b = 1;
 	else if (node_b->index - 1 <= size / 2)
 		*mv_b = (node_b->index - 1) * 2;
@@ -98,12 +72,16 @@ void	put_the_index(t_list **x)
 	}
 	node->index = n;
 }
+void	min_num(t_list **a, int *minimun)
+{
+	t_list	*node_a;
 
-// void	is_bigger(int *counter, int *c, int *index, int *temp_index)
-// {
-// 	if (*counter < *c)
-// 	{
-// 		*counter = *c;
-// 		*index = *temp_index;
-// 	}
-// }
+	node_a = *a;
+	*minimun = node_a->content;
+	while (node_a != NULL)
+	{
+		if (*minimun > node_a->content)
+			*minimun = node_a->content;
+		node_a = node_a->next;
+	}
+}

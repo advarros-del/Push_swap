@@ -5,7 +5,7 @@
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
-      "args": ["0 0"],
+      "args": [7 1 15 6 18 9],
       "stopAtEntry": false,
       "externalConsole": false,
       "cwd": "/home/adrvarga/cursus/push_swap/push_swap_remoto",

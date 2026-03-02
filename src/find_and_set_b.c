@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 17:50:22 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/26 16:33:29 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/02 16:57:22 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,18 @@ int    find_and_set_b(t_list **b, t_list **node_b, int value, int *code_mv)
 {
     while (*node_b != NULL && value < (*node_b)->content)
         *node_b = (*node_b)->next;
-    if (*node_b == NULL || *node_b == ft_lstlast(*b))
+    if (*node_b == NULL || (*node_b == ft_lstlast(*b) && (*node_b)->index > 2))
     {
         *node_b = ft_lstlast(*b);
         *code_mv = 4;
         return (1);
 	}
-        code_mv = 0;
+	else if ((*node_b)->index == 2)
+	{
+		*code_mv = 3;
+		return (1);
+	}
+	code_mv = 0;
     return (0);
 }
 int	is_sort(t_list *a)
@@ -78,3 +83,21 @@ void three_args(t_list **a)
     else
         sa(a);
 }
+// void five_args(t_list **a)
+// {
+//     t_list *min:
+    
+    
+
+
+    
+//     find_min(a)
+    
+// }
+
+
+// the move = find_and_set_b()
+// if (in_the_middle > 0) 
+// {
+	
+// }

@@ -6,11 +6,12 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:45 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/26 20:04:49 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:22:54 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 t_list	*push_swap(t_list *a)
 {
@@ -24,6 +25,23 @@ t_list	*push_swap(t_list *a)
 		{
 			b = NULL;
 			pb(&a, &b);
+		
+			// t_list *temp;
+			// temp = a;
+			// printf("value in A\n");
+			// while (a)
+			// {
+			// 	printf("value: %i\n", temp->content);
+			// 	temp = temp->next;
+			// }
+			
+			// temp = b;
+			// printf("value in B\n");
+			// while (b)
+			// {
+			// 	printf("value: %i\n", temp->content);
+			// 	temp = temp->next;
+			// }
 			sort_b(&a, &b);
 			while (b != NULL)
 				pa(&b, &a);
@@ -32,29 +50,6 @@ t_list	*push_swap(t_list *a)
 	}
 	return (a);
 }
-
-// void	group_on_b(t_list **a, t_list **b)
-// {
-// 	int		index;
-// 	int		counter;
-// 	t_list	*node_a;
-
-// 	node_a = *a;
-// 	index = 1;
-// 	put_the_index(a);
-// 	counter = bigger_group(*a, &index);
-// 	while (counter != 0)
-// 	{
-// 		while (node_a->index != index)
-// 		{
-// 			ra(a);
-// 			node_a = *a;
-// 		}
-// 		pb(a, b);
-// 		counter--;
-// 	}
-// }
-
 void	sort_b(t_list **a, t_list **b)
 {
 	int		minimun;
@@ -75,12 +70,14 @@ void	sort_b(t_list **a, t_list **b)
 			node_a = node_a->next;
 		the_move = find_and_set_b(b, &node_b, node_a->content, &code_mv);
 		if (code_mv != 4)
+		{
 			code_mv = check_and_mv_both(a, b, node_a, node_b);
-		if (code_mv != 0 && code_mv < 4)
 			the_move = check_mv(node_a->index, node_b->index);
+		}
 		prepare_b(node_b, b, &the_move, &code_mv);
 		prepare_and_send_a(a, b, node_a);
 		resort_b(b, the_move, code_mv);
+		
 	}
 }
 
