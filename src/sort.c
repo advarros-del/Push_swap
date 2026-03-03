@@ -1,59 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_and_set_b.c                                   :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/20 17:50:22 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/02 16:57:22 by adrvarga         ###   ########.fr       */
+/*   Created: 2026/03/03 11:46:30 by adrvarga          #+#    #+#             */
+/*   Updated: 2026/03/03 16:01:28 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int    find_and_set_b(t_list **b, t_list **node_b, int value, int *code_mv)
-{
-    while (*node_b != NULL && value < (*node_b)->content)
-        *node_b = (*node_b)->next;
-    if (*node_b == NULL || (*node_b == ft_lstlast(*b) && (*node_b)->index > 2))
-    {
-        *node_b = ft_lstlast(*b);
-        *code_mv = 4;
-        return (1);
-	}
-	else if ((*node_b)->index == 2)
-	{
-		*code_mv = 3;
-		return (1);
-	}
-	code_mv = 0;
-    return (0);
-}
 int	is_sort(t_list *a)
 {
     int n_prev;
 
-    n_prev = a->content;
+    n_prev = a->value;
     a = a->next;
 
     while (a)
     {
-        if (n_prev > a->content)
+        if (n_prev > a->value)
             return (0);
-		n_prev = a->content;
+		n_prev = a->value;
 		a = a->next;
     }
 	return (1);
-}
-int check_mv(int a, int b)
-{
-    int c;
-
-    c = a - b;
-    if (c < 0)
-        c *= -1;
-    return (c);
 }
 void three_args(t_list **a)
 {
@@ -61,11 +34,11 @@ void three_args(t_list **a)
     int y;
     int z;
 
-    x = (*a)->content;
+    x = (*a)->value;
     (*a) = (*a)->next;
-    y = (*a)->content;
+    y = (*a)->value;
     (*a) = (*a)->next;
-    z = (*a)->content;
+    z = (*a)->value;
     (*a) = (*a)->next;
     if (x > y  && x > z)
     {
@@ -83,21 +56,35 @@ void three_args(t_list **a)
     else
         sa(a);
 }
-// void five_args(t_list **a)
-// {
-//     t_list *min:
-    
-    
+void	five_args(t_list **a, t_list **b)
+{
+    int		aux;
+	t_list	*min;
 
+	min = *a;
+	while (ft_lstsize(*a) == 3)
+	{
+		aux = find_min(*a);
+		while (aux != (*a)->value)
+			ra(a);
+		pb(a, b);
+	}
+	three_args(a);
+	while (b != NULL)
+		pa(b, a);
+}
 
-    
-//     find_min(a)
-    
-// }
-
-
-// the move = find_and_set_b()
-// if (in_the_middle > 0) 
-// {
+int	find_min(t_list *a)
+{
+	int value;
 	
-// }
+	value = a->value;
+	a = a->next;
+	while (a)
+	{
+		if(a->value < value)
+			value = a->value;
+		a = a->next;
+	}
+	return (value);
+}

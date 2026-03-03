@@ -6,7 +6,7 @@
 #    By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/17 15:46:01 by adrvarga          #+#    #+#              #
-#    Updated: 2026/02/25 20:02:19 by adrvarga         ###   ########.fr        #
+#    Updated: 2026/03/03 16:00:36 by adrvarga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,17 +25,15 @@ OBJ_DIR = obj
 #All files .c that you need
 SRC = ft_atol.c\
 	check_args.c\
-	prepare_a.c\
 	is_dg_or_sp.c\
 	lst_function.c\
 	main.c\
 	push_swap.c\
 	rules1.c\
-	rules2.c\
-	specific_rules.c\
-	utils.c\
 	ft_split.c\
-	find_and_set_b.c
+	radix_sort.c\
+	sort.c\
+	
 SRCS := $(addprefix $(SRC_DIR)/, $(SRC))
 	
 #Transform all the .c to .o

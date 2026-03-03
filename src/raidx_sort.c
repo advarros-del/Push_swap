@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap2.c                                       :+:      :+:    :+:   */
+/*   raidx_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/02 18:44:54 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/02 18:54:19 by adrvarga         ###   ########.fr       */
+/*   Created: 2026/03/03 12:24:24 by adrvarga          #+#    #+#             */
+/*   Updated: 2026/03/03 16:01:20 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	index_on(t_list *a, int size)
+void radix_sort(t_list **a, t_list **b)
 {
-	t_list *current;
-	t_list *highest;
-	int		value;
+	int	max_bytes;
+	int current_byte;
+	int size;
+	int	i;
 
-	while (
+	max_bytes = 0;
+	size = ft_lstsize(*a);
+	while (size >> max_bytes != 0)
+		max_bytes++;
+	current_byte = 0;
+	while (current_byte < max_bytes)
+	{
+		i = -1;
+		while (i < size)
+		{
+			if ((((*a)->index >> current_byte) & 1) == 1)
+				ra(a);
+			else
+				pb(a, b);
+		}
+		while (b != NULL)
+			pa(b, a);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:50:08 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/16 19:15:27 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:04:57 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_list	*ft_lstnew(int content)
 	new_node = malloc(sizeof(t_list));
 	if (!new_node)
 		return (NULL);
-	new_node->content = content;
+	new_node->value = content;
 	new_node->next = NULL;
 	return (new_node);
 }

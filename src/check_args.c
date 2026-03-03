@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:07:46 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/26 14:34:09 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:02:11 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ t_list	**wtf_is_this(char **argv, int argc, t_list **a)
 		j = 0;
 		while (argv[i][j] != '\0' && is_dg_or_sp(argv[i], &s) == 1)
 			j++;
-		if (is_empty(argv[i]) == 0)
-			return (NULL);
-		if (argv[i][j] != '\0')
+		if (is_empty(argv[i]) == 0 || argv[i][j] != '\0')
 			return (NULL);
 		else if (s == 1)
 			gimmi_nbr(argv[i], a);
@@ -99,4 +97,24 @@ int	is_empty(char *str)
 		i++;
 	}
 	return (n);
+}
+int dupply(t_list *a)
+{
+	t_list *aux;
+	int	num;	
+
+	while (a)
+	{
+		num = a->value;
+		aux = a;
+		aux = aux->next;
+		while (aux)
+		{
+			if (num == aux->value)
+				return (1);
+			aux = aux->next;
+		}
+		a = a->next;
+	}
+	return (0);
 }
