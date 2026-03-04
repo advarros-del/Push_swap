@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raidx_sort.c                                       :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 12:24:24 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/03 16:01:20 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:32:52 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ void radix_sort(t_list **a, t_list **b)
 	current_byte = 0;
 	while (current_byte < max_bytes)
 	{
-		i = -1;
+		i = 0;
 		while (i < size)
 		{
 			if ((((*a)->index >> current_byte) & 1) == 1)
 				ra(a);
 			else
 				pb(a, b);
+			i++;
 		}
-		while (b != NULL)
+		while (*b != NULL)
 			pa(b, a);
+		current_byte++;
 	}
 }

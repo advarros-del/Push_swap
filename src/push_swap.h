@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 # ifndef MAX_INT
 #  define MAX_INT 2147483647
 # endif
@@ -22,21 +23,20 @@
 #  define MIN_INT -2147483648
 # endif
 
+# include <stdio.h>
+
 
 typedef struct s_list
 {
 	int				value;
 	int				index;
-	int				pos;
-	int				target_pos;
-	int				cost_a;
-	int				cost_b;
 	struct s_list	*next;
 }	t_list;
 
 void	push_swap(t_list *a);
 t_list	**wtf_is_this(char **argv, int argc, t_list **a);
-int		is_dg_or_sp(char *arg, int *s);
+int		is_dg_or_sp(char *arg);
+int		ft_isdigit(int c);
 int		is_empty(char *str);
 t_list	**send_to_list(long int n, t_list **a);
 t_list	**gimmi_nbr(char *str, t_list **a);

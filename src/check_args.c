@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:07:46 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/03 16:02:11 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/04 14:00:03 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,28 @@
 t_list	**wtf_is_this(char **argv, int argc, t_list **a)
 {
 	int			i;
-	int			j;
-	int			s;
 	long int	n;
-
-	i = 0;
-	while (++i < argc)
+	char		**matrix;
+	int 		j;
+	
+	i = 1;
+	while (i < argc)
 	{
-		s = 0;
-		j = 0;
-		while (argv[i][j] != '\0' && is_dg_or_sp(argv[i], &s) == 1)
-			j++;
-		if (is_empty(argv[i]) == 0 || argv[i][j] != '\0')
+		if (is_dg_or_sp(argv[i]) == 0  || is_empty(argv[i]) == 0)
 			return (NULL);
-		else if (s == 1)
-			gimmi_nbr(argv[i], a);
-		else
+		matrix = ft_split(argv[i], ' ');
+		if (matrix == NULL)
+			return (NULL);
+		j = 0;
+		while (matrix[j])
 		{
-			n = atol(argv[i]);
-			if (send_to_list(n, a) == NULL)
-				return (NULL);
+			n = ft_atol(matrix[j]);
+			send_to_list(n, a);
+			j++;
 		}
-	}
+		ft_free_all(matrix, j);
+		i++;
+		}
 	return (a);
 }
 
