@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 15:27:19 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/04 14:14:42 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/04 15:56:44 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	is_dg_or_sp(char *arg)
 	i = 0;
 	while(arg[i] != '\0')
 	{
-		if (arg[i] == '-' && arg[i + 1] != '\0' && arg[i + 1] != 32 
+		if (arg[i] == '-' && ft_isdigit(arg[i +1]) == 1
 			&& ( i == 0 || ft_isdigit(arg[i - 1]) == 0))
 			i++;
-		else if (arg[i] == '+' && arg[i + 1] != '\0' && arg[i + 1] != 32 
+		else if (arg[i] == '+' && ft_isdigit(arg[i +1]) == 1
 			&& ( i == 0 ||ft_isdigit(arg[i - 1]) == 0))
 			i++;
 		else if (ft_isdigit(arg[i]) == 1)

@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:07:46 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/04 14:00:03 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/04 15:31:27 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,25 @@ t_list	**send_to_list(long int n, t_list **a)
 	return (a);
 }
 
-t_list	**gimmi_nbr(char *str, t_list **a)
-{
-	char			**matrix;
-	int				i;
-	long int		n;
+//t_list	**gimmi_nbr(char *str, t_list **a)
+//{
+//	char			**matrix;
+//	int				i;
+//	long int		n;
 
-	matrix = ft_split(str, ' ');
-	if (matrix == NULL)
-		return (NULL);
-	i = 0;
-	while (matrix[i])
-	{
-		n = ft_atol(matrix[i]);
-		send_to_list(n, a);
-		i++;
-	}
-	ft_free_all(matrix, i);
-	return (a);
-}
+//	matrix = ft_split(str, ' ');
+//	if (matrix == NULL)
+//		return (NULL);
+//	i = 0;
+//	while (matrix[i])
+//	{
+//		n = ft_atol(matrix[i]);
+//		send_to_list(n, a);
+//		i++;
+//	}
+//	ft_free_all(matrix, i);
+//	return (a);
+//}
 
 void	ft_free_all(char **str, int i)
 {

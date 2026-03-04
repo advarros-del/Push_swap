@@ -6,16 +6,16 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:52:55 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/02/24 11:18:37 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/04 15:31:04 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*******************************************************************
- * atoi transform an ascii number into a regular number in the int *
- ******************************************************************/
+/************************************************************************
+ * atol transform an ascii number into a regular number in the long int *
+ ***********************************************************************/
 
-int	ft_atol(const char *nptr)
+long int	ft_atol(const char *nptr)
 {
 	int	i;
 	long int	dest;
