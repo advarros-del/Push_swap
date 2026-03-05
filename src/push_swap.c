@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:44:54 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/04 12:19:42 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:27:53 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	index_on(t_list *a, int size)
 	{
 		highest = NULL;
 		value = MIN_INT;
-		aux = a; 
+		aux = a;
 		while (aux)
 		{
 			if (aux->value == MIN_INT && aux->index == 0)
@@ -40,27 +40,28 @@ void	index_on(t_list *a, int size)
 			highest->index = size;
 	}
  }
-void	push_swap(t_list *a)
+void	push_swap(t_list **a, t_list **b)
 {
-	t_list	*b;
 	int size;
 	
-	size = ft_lstsize(a);
-	b = NULL;
-	if (!is_sort(a))
+	size = ft_lstsize(*a);
+	if (!is_sort(*a))
 	{
 		
 		if (size == 2)
-			sa(&a);
+			sa(a);
 		else if (size == 3)
-			three_args(&a);
+			three_args(a);
 		else if (size <= 5)
-			five_args(&a, &b);
+		{
+			index_on(*a, size);
+			five_args(a, b);
+		}
 		else
 		{
 			size++;
-			index_on(a, size);
-			radix_sort(&a, &b);
+			index_on(*a, size);
+			radix_sort(a, b);
 		}
 	}
 }

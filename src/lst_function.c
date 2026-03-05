@@ -6,11 +6,12 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:50:08 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/03 16:04:57 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:29:12 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -57,6 +58,7 @@ t_list	*ft_lstnew(int content)
 	if (!new_node)
 		return (NULL);
 	new_node->value = content;
+	new_node->index = 0;
 	new_node->next = NULL;
 	return (new_node);
 }
@@ -68,7 +70,7 @@ void	ft_lstclear(t_list **lst)
 	if (!lst || !*lst)
 		return ;
 	temp = *lst;
-	while (temp != NULL)
+	while (temp)
 	{
 		aux = temp->next;
 		free(temp);

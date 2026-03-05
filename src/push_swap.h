@@ -23,8 +23,6 @@
 #  define MIN_INT -2147483648
 # endif
 
-# include <stdio.h>
-
 
 typedef struct s_list
 {
@@ -33,14 +31,14 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-void	push_swap(t_list *a);
-t_list	**wtf_is_this(char **argv, int argc, t_list **a);
+void	push_swap(t_list **a, t_list **b);
+t_list	*wtf_is_this(char **argv, int argc, t_list **a);
 int		is_dg_or_sp(char *arg);
 int		ft_isdigit(int c);
 int		is_empty(char *str);
-t_list	**send_to_list(long int n, t_list **a);
+t_list	*send_to_list(long int n, t_list **a);
 t_list	**gimmi_nbr(char *str, t_list **a);
-void	ft_free_all(char **str, int i);
+void	ft_free_all(char **str);
 long int		ft_atol(const char *nptr);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
