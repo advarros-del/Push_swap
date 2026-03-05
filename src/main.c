@@ -6,12 +6,11 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 15:54:01 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/05 15:28:32 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:33:18 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {

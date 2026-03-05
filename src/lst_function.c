@@ -6,12 +6,11 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:50:08 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/05 15:29:12 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:33:05 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
