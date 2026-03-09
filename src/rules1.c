@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:45:53 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/04 16:48:50 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/09 09:07:24 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	pb(t_list **bye, t_list **hey)
 	*hey = temp;
 	write(1, "pb\n", 3);
 }
-
 
 void	ra(t_list **x)
 {

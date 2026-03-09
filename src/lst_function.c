@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:50:08 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/05 15:33:05 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/09 09:08:00 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_list	*ft_lstnew(int content)
 	new_node->next = NULL;
 	return (new_node);
 }
+
 void	ft_lstclear(t_list **lst)
 {
 	t_list	*aux;

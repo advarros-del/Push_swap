@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-void radix_sort(t_list **a, t_list **b)
+void	radix_sort(t_list **a, t_list **b)
 {
 	int	max_bytes;
-	int current_byte;
-	int size;
+	int	current_byte;
+	int	size;
 	int	i;
 
 	max_bytes = 0;

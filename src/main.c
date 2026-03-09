@@ -6,7 +6,7 @@
 /*   By: adrvarga <adrvarga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 15:54:01 by adrvarga          #+#    #+#             */
-/*   Updated: 2026/03/05 15:33:18 by adrvarga         ###   ########.fr       */
+/*   Updated: 2026/03/09 09:07:01 by adrvarga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
-	
+
 	a = NULL;
 	b = NULL;
 	if (argc < 2)
